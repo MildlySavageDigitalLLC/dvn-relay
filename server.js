@@ -27,6 +27,14 @@ app.get("/api/blocks", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.json({
+    ok: true,
+    service: "DVN Relay",
+    endpoints: ["/api/status", "/api/blocks"]
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`DVN Relay running on port ${PORT}`);
